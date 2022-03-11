@@ -15,14 +15,22 @@ export const RestaurantForm = () => {
   // send chosenRestaurant obj to API
   // find id of restaurant added
   const sendRestaurant = (event) => {
+    const addedRestaurant = {
+      name: restaurant.name,
+      address: restaurant.address,
+      menu: restaurant.menu,
+      description: restaurant.description,
+      categoryId: 1,
+    };
     event.preventDefault();
+    // send addedRest obj to API
     const fetchOption = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       //   save the body of the request which is the chosenRestaurant obj
-      body: JSON.stringify(restaurant),
+      body: JSON.stringify(addedRestaurant),
     };
 
     return fetch("http://localhost:8088/restaurants", fetchOption).then(() => {
@@ -66,7 +74,7 @@ export const RestaurantForm = () => {
               placeholder="Directions Please"
               onChange={(evt) => {
                 const copy = { ...restaurant };
-                copy.specialty = evt.target.value;
+                copy.address = evt.target.value;
                 newRestaurant(copy);
               }}
             />
@@ -84,7 +92,7 @@ export const RestaurantForm = () => {
               placeholder="Vegan only or Hybrid?"
               onChange={(evt) => {
                 const copy = { ...restaurant };
-                copy.specialty = evt.target.value;
+                copy.menu = evt.target.value;
                 newRestaurant(copy);
               }}
             />
@@ -100,10 +108,10 @@ export const RestaurantForm = () => {
               id="description"
               type="text"
               className="form-control"
-              placeholder="Is this place a vibe or nah?"
+              placeholder="Is this place a vibe?"
               onChange={(evt) => {
                 const copy = { ...restaurant };
-                copy.specialty = evt.target.value;
+                copy.description = evt.target.value;
                 newRestaurant(copy);
               }}
             />

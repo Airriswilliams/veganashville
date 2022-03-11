@@ -21,7 +21,7 @@ export const Restaurant = () => {
       <section className="restaurant">
         <h3 className="restaurant__name">{restaurant.name}</h3>
         <div className="restaurant__address">
-          Restaurant is located at {restaurant.address}
+          {restaurant.name} is located at {restaurant.address}
         </div>
 
         <div className="restaurant__menu">

@@ -12,7 +12,7 @@ import { Restaurant } from "./restaurants/Restaurant";
 export const ApplicationViews = () => {
   return (
     <>
-      <Route path="/restaurants">
+      <Route exact path="/restaurants">
         <RestaurantList />
       </Route>
 
