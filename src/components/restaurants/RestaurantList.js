@@ -35,13 +35,9 @@ export const RestaurantList = () => {
       {restaurants.map((restaurantObject) => {
         return (
           <div key={`restaurant--${restaurantObject.id}`}>
-            <br />
-            {restaurantObject.name}
-            <br />
-            {restaurantObject.description}
-            <br /> {restaurantObject.menu}
-            <br /> {restaurantObject.address}
-            <hr />
+            <Link to={`/restaurants/${restaurantObject.id}`}>
+              {restaurantObject.name}
+            </Link>
             <button
               onClick={() => {
                 deleteRestaurant(restaurantObject.id);
