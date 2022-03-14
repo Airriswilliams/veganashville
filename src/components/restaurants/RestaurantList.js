@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { getAllRestaurants } from "../ApiManager";
+import { FaTrashAlt } from "react-icons/fa";
+import { GiTacos } from "react-icons/gi";
 
 export const RestaurantList = () => {
   // useState returns an array, it's initial value "restaurants"
@@ -28,6 +30,7 @@ export const RestaurantList = () => {
     <>
       <div>
         <button onClick={() => history.push("/restaurants/create")}>
+          <GiTacos />
           Add Restaurant
         </button>
       </div>
@@ -43,6 +46,7 @@ export const RestaurantList = () => {
                 deleteRestaurant(restaurantObject.id);
               }}
             >
+              <FaTrashAlt />
               Delete Restaurant
             </button>
           </div>

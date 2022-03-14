@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
+// const form = {name: "", address: "" etc...} var = to an obj
 export const RestaurantForm = () => {
   const [restaurant, newRestaurant] = useState({
     name: "",
