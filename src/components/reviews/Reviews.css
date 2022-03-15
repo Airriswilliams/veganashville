@@ -1,0 +1,21 @@
+.reviewForm {
+    border: 1px solid #0d0d0d;
+    box-shadow: 1px 1px #0d0d0d, 2px 2px #0d0d0d;
+    padding: 1rem;
+    width: 20rem;
+}
+
+input {
+    display: block;
+    margin: .5rem auto 0 auto;
+    padding: 0.25rem 0.5rem;
+}
+
+button {
+    border: 1px solid #0d0d0d;
+    cursor: pointer;
+}
+
+body {
+    background-color: rgb(0, 255, 179);
+}

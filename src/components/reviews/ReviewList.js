@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { getAllReviews } from "../ApiManager";
+import { FaTrashAlt } from "react-icons/fa";
+
 import "./Reviews.css";
 
 export const ReviewList = () => {
@@ -24,22 +26,19 @@ export const ReviewList = () => {
     });
   };
 
-  {
-    /* use history() to immediately change URL to show the ticket form /tickets/create */
-  }
   return (
     <>
+      <h1>VegaNashville Reviews</h1>
       <button onClick={() => history.push("/reviews/create")}>
         New Review
       </button>
-      {/* // is ticket.emergency true, if yes emergency if false ticket //{" "}
-      <Link>{ticket.description}</Link> links are creating a link for each
-      individual ticket // when hyperlink is clicked the view will change to
-      just the details of that ticket */}
+      <h2>Leave a Review</h2>
+
       {reviews.map((review) => {
+        console.log("review: ", review.review);
         return (
           <div key={`review--${review.id}`}>
-            <p className={`ticket ${review.review ? "review" : ""}`}>
+            <p className={`review ${review.review ? "review" : ""}`}>
               <Link to={`/reviews/${review.id}`}>{review.review}</Link>{" "}
               submitted by {review.user.name}
               <button
@@ -47,7 +46,17 @@ export const ReviewList = () => {
                   deleteReview(review.id);
                 }}
               >
-                Delete
+                <FaTrashAlt />
+              </button>
+              <button
+                onClick={() => {
+                  history.push({
+                    pathname: "/reviews/create",
+                    state: { reviewNote: review.review, reviewId: review.id },
+                  });
+                }}
+              >
+                Edit
               </button>
             </p>
           </div>

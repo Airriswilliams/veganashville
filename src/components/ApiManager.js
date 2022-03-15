@@ -3,7 +3,9 @@ export const getAllUsers = () => {
 };
 
 export const getAllRestaurants = () => {
-  return fetch("http://localhost:8088/restaurants").then((res) => res.json());
+  return fetch("http://localhost:8088/restaurants")
+    .then((res) => res.json())
+    .then((data) => data);
 };
 
 export const getAllReviews = () => {

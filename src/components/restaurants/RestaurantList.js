@@ -25,7 +25,12 @@ export const RestaurantList = () => {
       updateRestaurantList([1]);
     });
   };
+  //localStorage.setItem("vegan_user_role", String(exists.admin));
+  const isAdmin = localStorage.getItem("vegan_user_role")
+    ? JSON.parse(localStorage.getItem("vegan_user_role"))
+    : false;
 
+  console.log("isAdmin: ", isAdmin);
   return (
     <>
       <div>
@@ -41,14 +46,15 @@ export const RestaurantList = () => {
             <Link to={`/restaurants/${restaurantObject.id}`}>
               {restaurantObject.name}
             </Link>
-            <button
-              onClick={() => {
-                deleteRestaurant(restaurantObject.id);
-              }}
-            >
-              <FaTrashAlt />
-              Delete Restaurant
-            </button>
+            {isAdmin && (
+              <button
+                onClick={() => {
+                  deleteRestaurant(restaurantObject.id);
+                }}
+              >
+                <FaTrashAlt />
+              </button>
+            )}
           </div>
         );
       })}

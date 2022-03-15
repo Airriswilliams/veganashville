@@ -18,7 +18,9 @@ export const Login = () => {
     e.preventDefault();
     existingUserCheck().then((exists) => {
       if (exists) {
+        console.log("exists: ", exists.admin);
         localStorage.setItem("vegan_user", exists.id);
+        localStorage.setItem("vegan_user_role", exists.admin);
         history.push("/");
       } else {
         existDialog.current.showModal();

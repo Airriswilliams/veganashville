@@ -33,6 +33,7 @@ export const NavBar = (props) => {
           to="/#"
           onClick={() => {
             localStorage.removeItem("vegan_user");
+            localStorage.removeItem("vegan_user_role");
           }}
         >
           Logout
