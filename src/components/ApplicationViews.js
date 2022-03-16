@@ -8,8 +8,7 @@ import { Restaurant } from "./restaurants/Restaurant";
 import { ReviewForm } from "./reviews/ReviewForm";
 import { ReviewList } from "./reviews/ReviewList";
 import { FavoriteList } from "./favorites/FavoritesList";
-import { ReviewEditForm } from "./reviews/ReviewEditForm";
-
+import { RestaurantEditForm } from "./restaurants/RestaurantEditForm";
 // purpose of this component is to render the individual pages that were selected by navBar
 // links, click on the links and the following gets triggered.
 
@@ -38,6 +37,10 @@ export const ApplicationViews = () => {
 
       <Route exact path="/favorites">
         <FavoriteList />
+      </Route>
+
+      <Route exact path="/restaurants/edit/:restaurantObjectId(\d+)">
+        <RestaurantEditForm />
       </Route>
 
       {/* <Route exact path="/reviews/edit/:reviewId(\d+)">

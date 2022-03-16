@@ -25,3 +25,9 @@ export const getAllCategories = () => {
     .then((res) => res.json())
     .then((data) => data);
 };
+
+export const getRestaurantbyId = (id) => {
+  return fetch(`http://localhost:8088/restaurants/${id}`)
+    .then((res) => res.json())
+    .then((data) => data);
+};

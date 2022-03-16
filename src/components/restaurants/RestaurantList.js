@@ -4,6 +4,7 @@ import { getAllRestaurants } from "../ApiManager";
 import { FaTrashAlt } from "react-icons/fa";
 import { GiTacos } from "react-icons/gi";
 import { MdFavorite } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
 
 export const RestaurantList = () => {
   // useState returns an array, it's initial value "restaurants"
@@ -47,6 +48,7 @@ export const RestaurantList = () => {
             <Link to={`/restaurants/${restaurantObject.id}`}>
               {restaurantObject.name}
             </Link>
+
             <button
               onClick={() => {
                 // get userId from local storage, step 2 get the current restaurants id
@@ -73,7 +75,6 @@ export const RestaurantList = () => {
               }}
             >
               <MdFavorite />
-              Add Favorite
             </button>
             {isAdmin && (
               <button
@@ -84,6 +85,13 @@ export const RestaurantList = () => {
                 <FaTrashAlt />
               </button>
             )}
+            <button
+              onClick={() => {
+                history.push(`/restaurants/edit/${restaurantObject.id}`);
+              }}
+            >
+              <FaEdit />
+            </button>
           </div>
         );
       })}
