@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { getAllCategories } from "../ApiManager";
 
 // const form = {name: "", address: "" etc...} var = to an obj
 export const RestaurantForm = () => {
@@ -9,11 +10,15 @@ export const RestaurantForm = () => {
     menu: "",
     description: "",
   });
+  const [categories, setCategories] = useState([]);
+  useEffect(async () => {
+    const data = await getAllCategories();
+    setCategories(data);
+  }, []);
+
   const history = useHistory();
   // once Add restaurant button is clicked, we need a function to perform Post operation
-  // function that uses state variable to create a new obj to post to API
 
-  // send chosenRestaurant obj to API
   // find id of restaurant added
   const sendRestaurant = (event) => {
     const addedRestaurant = {
@@ -21,7 +26,7 @@ export const RestaurantForm = () => {
       address: restaurant.address,
       menu: restaurant.menu,
       description: restaurant.description,
-      categoryId: 1,
+      categoryId: parseInt(restaurant.categoryId),
     };
     event.preventDefault();
     // send addedRest obj to API
@@ -116,6 +121,34 @@ export const RestaurantForm = () => {
                 newRestaurant(copy);
               }}
             />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="category">Category</label>
+            <select
+              name="category"
+              onChange={(evt) => {
+                const copy = { ...restaurant };
+                copy.categoryId = evt.target.value;
+                newRestaurant(copy);
+              }}
+            >
+              <option value="0" disabled hidden>
+                Select a Category
+              </option>
+              {categories.map((category) => {
+                return (
+                  <option
+                    key={`category--${category.id}`}
+                    value={`${category.id}`}
+                  >
+                    {`${category.type}`}
+                  </option>
+                );
+              })}
+            </select>
           </div>
         </fieldset>
 

@@ -8,7 +8,6 @@ import "./Reviews.css";
 
 export const ReviewForm = () => {
   const [review, updateReview] = useState({
-    restaurant: "",
     review: "",
     // these two state variables will be updated as user interacts with form
   });
@@ -34,7 +33,7 @@ export const ReviewForm = () => {
   // function that uses state variable to create a new obj to post to API
   const submitReview = (event) => {
     const newReview = {
-      restaurant: review.restaurant,
+      restaurantId: parseInt(review.restaurantId),
       review: review.review,
       //pull FK of customerId from local storage and add it to the new obj to be submitted
       userId: parseInt(localStorage.getItem("vegan_user")),
