@@ -27,7 +27,6 @@ export const ReviewForm = () => {
   const [restaurants, setRestaurants] = useState([]);
   useEffect(async () => {
     const data = await getAllRestaurants();
-    console.log("data: ", data);
     setRestaurants(data);
   }, []);
 
@@ -43,23 +42,31 @@ export const ReviewForm = () => {
     event.preventDefault();
     // send newTicket obj to API
     const fetchOption = {
-      method: "PUT",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       // save the body of the request which is the newTicket obj
       body: JSON.stringify(newReview),
     };
-    console.log("review: ", review);
-    return fetch(
-      `http://localhost:8088/userReviews/${defaultSelect}`,
-      fetchOption
-    ).then(() => {
-      history.push("/reviews");
-    });
+    // 1st fetch, go to userReviews and run fetchOption Post to app json and stringify new review which turns it into an obj in database
+    // the next fetch option pulls userReviews again with the new review added to it.
+    return (
+      fetch("http://localhost:8088/userReviews", fetchOption)
+        .then(() => {
+          return fetch("http://localhost:8088/userReviews");
+        })
+        // res.json convert to string????
+        .then((res) => res.json())
+        .then((reviewsfromAPI) => {
+          updateReview(reviewsfromAPI);
+        })
+        .then(() => {
+          history.push("/reviews");
+        })
+    );
   };
   //state: { reviewNote: review.review, reviewId: review.id },
-  console.log("default detail: ", location);
   // now create the actual form the user will use
   return (
     <form className="reviewForm">

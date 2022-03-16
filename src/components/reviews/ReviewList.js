@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { getAllReviews } from "../ApiManager";
 import { FaTrashAlt } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 
 import "./Reviews.css";
 
@@ -35,7 +36,6 @@ export const ReviewList = () => {
       <h2>Leave a Review</h2>
 
       {reviews.map((review) => {
-        console.log("review: ", review.review);
         return (
           <div key={`review--${review.id}`}>
             <p className={`review ${review.review ? "review" : ""}`}>
@@ -50,13 +50,10 @@ export const ReviewList = () => {
               </button>
               <button
                 onClick={() => {
-                  history.push({
-                    pathname: "/reviews/create",
-                    state: { reviewNote: review.review, reviewId: review.id },
-                  });
+                  history.push(`/reviews/edit/${review.id}`);
                 }}
               >
-                Edit
+                <FaEdit />
               </button>
             </p>
           </div>

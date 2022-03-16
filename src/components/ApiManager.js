@@ -13,3 +13,9 @@ export const getAllReviews = () => {
     res.json()
   );
 };
+
+export const getAllFavorites = () => {
+  return fetch("http://localhost:8088/favoritess")
+    .then((res) => res.json())
+    .then((data) => data);
+};
