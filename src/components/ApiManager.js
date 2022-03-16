@@ -15,7 +15,7 @@ export const getAllReviews = () => {
 };
 
 export const getAllFavorites = () => {
-  return fetch("http://localhost:8088/favoritess")
+  return fetch("http://localhost:8088/favorites?_expand=restaurant")
     .then((res) => res.json())
     .then((data) => data);
 };

@@ -47,7 +47,31 @@ export const RestaurantList = () => {
             <Link to={`/restaurants/${restaurantObject.id}`}>
               {restaurantObject.name}
             </Link>
-            <button onClick={() => history.push("/restaurants/favorites")}>
+            <button
+              onClick={() => {
+                // get userId from local storage, step 2 get the current restaurants id
+                // step 3 do post fetch to favorites
+                const favoriteObject = {
+                  userId: parseInt(localStorage.getItem("vegan_user")),
+                  restaurantId: restaurantObject.id,
+                };
+
+                const fetchOption = {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(favoriteObject),
+                };
+
+                return fetch(
+                  "http://localhost:8088/favorites",
+                  fetchOption
+                ).then(() => {
+                  history.push("/favorites");
+                });
+              }}
+            >
               <MdFavorite />
               Add Favorite
             </button>
