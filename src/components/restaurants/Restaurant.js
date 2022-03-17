@@ -9,7 +9,9 @@ export const Restaurant = () => {
 
   useEffect(
     () => {
-      fetch(`http://localhost:8088/restaurants/${restaurantId}`)
+      fetch(
+        `http://localhost:8088/restaurants/${restaurantId}?_expand=category`
+      )
         .then((res) => res.json())
         .then(setRestaurant);
     },
@@ -29,6 +31,10 @@ export const Restaurant = () => {
         </div>
 
         <div className="restaurant__description">{restaurant.description}</div>
+        <div className="restaurant_category">
+          Type of Cuisine: {""}
+          {restaurant.category?.type}
+        </div>
       </section>
     </>
   );

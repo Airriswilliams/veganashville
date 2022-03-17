@@ -39,7 +39,7 @@ export const ReviewList = () => {
         return (
           <div key={`review--${review.id}`}>
             <p className={`review ${review.review ? "review" : ""}`}>
-              <Link to={`/reviews/${review.id}`}>{review.review}</Link>{" "}
+              {review.review} Review of {review.restaurant?.name} {""}
               submitted by {review.user.name}
               <button
                 onClick={() => {

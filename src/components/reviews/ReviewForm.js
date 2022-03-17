@@ -77,7 +77,7 @@ export const ReviewForm = () => {
             name="restaurant"
             onChange={(evt) => {
               const copy = { ...review };
-              copy.restaurant = evt.target.value;
+              copy.restaurantId = evt.target.value;
               //now that the copy is updated, the copy becomes the new state
               updateReview(copy);
             }}

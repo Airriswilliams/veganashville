@@ -9,6 +9,7 @@ import { ReviewForm } from "./reviews/ReviewForm";
 import { ReviewList } from "./reviews/ReviewList";
 import { FavoriteList } from "./favorites/FavoritesList";
 import { RestaurantEditForm } from "./restaurants/RestaurantEditForm";
+import { ReviewEditForm } from "./reviews/ReviewEditForm";
 // purpose of this component is to render the individual pages that were selected by navBar
 // links, click on the links and the following gets triggered.
 
@@ -43,9 +44,9 @@ export const ApplicationViews = () => {
         <RestaurantEditForm />
       </Route>
 
-      {/* <Route exact path="/reviews/edit/:reviewId(\d+)">
+      <Route exact path="/reviews/edit/:reviewId(\d+)">
         <ReviewEditForm />
-      </Route> */}
+      </Route>
     </>
   );
 };
