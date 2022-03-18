@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "./Restaurants.css";
 
 export const Restaurant = () => {
   const [restaurant, setRestaurant] = useState({}); // State variable for current restaurant object

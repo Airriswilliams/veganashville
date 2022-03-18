@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { getAllFavorites } from "../ApiManager";
 import { FaTrashAlt } from "react-icons/fa";
+import "./Favorites.css";
 
 export const FavoriteList = () => {
   const [favorites, setFavorites] = useState([]);

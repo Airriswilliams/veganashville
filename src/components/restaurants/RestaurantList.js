@@ -5,6 +5,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { GiTacos } from "react-icons/gi";
 import { MdFavorite } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import "./Restaurants.css";
 
 export const RestaurantList = () => {
   // useState returns an array, it's initial value "restaurants"
@@ -44,7 +45,10 @@ export const RestaurantList = () => {
       )}
       {restaurants.map((restaurantObject) => {
         return (
-          <div key={`restaurant--${restaurantObject.id}`}>
+          <div
+            className="restaurant_list"
+            key={`restaurant--${restaurantObject.id}`}
+          >
             <Link to={`/restaurants/${restaurantObject.id}`}>
               {restaurantObject.name}
             </Link>

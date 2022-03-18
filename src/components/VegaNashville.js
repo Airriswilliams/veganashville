@@ -14,6 +14,15 @@ export const VegaNashville = () => {
           if (localStorage.getItem("vegan_user")) {
             return (
               <>
+                <div className="header">
+                  <h1 className="title">VegaNashville</h1>
+                  {/* <img
+                    className="header_photo"
+                    src="/images/dining.jpg"
+                    alt="people dining outdoors"
+                  /> */}
+                </div>
+                <h5>Be apart of Music City's growing plant-based community</h5>
                 <NavBar />
                 <ApplicationViews />
               </>
