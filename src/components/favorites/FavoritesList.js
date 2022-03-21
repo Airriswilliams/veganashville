@@ -4,6 +4,7 @@ import { getAllFavorites } from "../ApiManager";
 import { FaTrashAlt } from "react-icons/fa";
 import "./Favorites.css";
 import { getAllRestaurants } from "../ApiManager";
+import Salad from "../../images/healthySalad.jpg";
 
 export const FavoriteList = () => {
   const [favorites, setFavorites] = useState([]);
@@ -43,7 +44,10 @@ export const FavoriteList = () => {
           );
           return (
             <div key={`favorite--${favoriteObject.id}`}>
-              <Link to={`/restaurants/${foundRestaurant.id}`}>
+              <div className="restaurant_image">
+                <img src={Salad} />
+              </div>
+              <Link to={`/restaurants/${foundRestaurant?.id}`}>
                 {favoriteObject.restaurant?.name}
               </Link>
 

@@ -31,6 +31,10 @@ export const Restaurant = () => {
           One of the best vegan spots in town for {restaurant.menu}
         </div>
 
+        <div className="restaurant__image">
+          <img src={restaurant.image}></img>
+        </div>
+
         <div className="restaurant__description">{restaurant.description}</div>
         <div className="restaurant_category">
           Type of Cuisine: {""}
