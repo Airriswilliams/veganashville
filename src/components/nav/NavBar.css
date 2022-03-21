@@ -1,10 +1,19 @@
 .navbar {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: left;
+  justify-content: right;
 }
 
 .navbar__item {
   flex-basis: 20%;
   list-style-type: none;
+}
+
+.navbar__link {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar__link:hover {
+  text-decoration: underline;
 }

@@ -15,16 +15,20 @@ export const VegaNashville = () => {
             return (
               <>
                 <div className="header">
-                  <h1 className="title">VegaNashville</h1>
-                  {/* <img
-                    className="header_photo"
-                    src="/images/dining.jpg"
-                    alt="people dining outdoors"
-                  /> */}
+                  <div className="topSection">
+                    <h1 className="title">VegaNashville</h1>
+                    {/* <img
+                      className="header_photo"
+                      src="/images/dining.jpg"
+                      alt="people dining outdoors"
+                    /> */}
+                    <h3 className="subtitle">
+                      Be apart of Music City's growing plant-based community
+                    </h3>
+                    <NavBar />
+                  </div>
+                  <ApplicationViews />
                 </div>
-                <h5>Be apart of Music City's growing plant-based community</h5>
-                <NavBar />
-                <ApplicationViews />
               </>
             );
           } else {

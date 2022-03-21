@@ -3,11 +3,20 @@ import { useHistory, Link } from "react-router-dom";
 import { getAllFavorites } from "../ApiManager";
 import { FaTrashAlt } from "react-icons/fa";
 import "./Favorites.css";
+import { getAllRestaurants } from "../ApiManager";
 
 export const FavoriteList = () => {
   const [favorites, setFavorites] = useState([]);
+  const [restaurants, setAllRestaurants] = useState([]);
   const [oldFavorite, updateFavoriteList] = useState([]);
   const history = useHistory();
+
+  useEffect(() => {
+    console.log("Initial useEffect");
+    getAllRestaurants().then((restaurantArray) => {
+      setAllRestaurants(restaurantArray);
+    });
+  }, []);
 
   useEffect(() => {
     console.log("Initial useEffect");
@@ -27,23 +36,28 @@ export const FavoriteList = () => {
   return (
     <>
       <h1>My Favorites</h1>
-      {favorites.map((favoriteObject) => {
-        return (
-          <div key={`favorite--${favoriteObject.id}`}>
-            <Link to={`/favorites/${favoriteObject.id}`}>
-              {favoriteObject.restaurant?.name}
-            </Link>
+      <div className="favorite_list_section">
+        {favorites.map((favoriteObject) => {
+          const foundRestaurant = restaurants.find(
+            (restaurant) => restaurant.id === favoriteObject.restaurantId
+          );
+          return (
+            <div key={`favorite--${favoriteObject.id}`}>
+              <Link to={`/restaurants/${foundRestaurant.id}`}>
+                {favoriteObject.restaurant?.name}
+              </Link>
 
-            <button
-              onClick={() => {
-                deleteFavorite(favoriteObject.id);
-              }}
-            >
-              <FaTrashAlt />
-            </button>
-          </div>
-        );
-      })}
+              <button
+                onClick={() => {
+                  deleteFavorite(favoriteObject.id);
+                }}
+              >
+                <FaTrashAlt />
+              </button>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };
