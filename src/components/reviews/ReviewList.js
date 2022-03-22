@@ -3,6 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import { getAllReviews } from "../ApiManager";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import Chef from "../../images/chef-behind-counter.jpg";
 
 import "./Reviews.css";
 
@@ -34,27 +35,33 @@ export const ReviewList = () => {
         New Review
       </button>
       <h2>Leave a Review</h2>
-
+      <img src={Chef} />
       {reviews.map((review) => {
         return (
           <div key={`review--${review.id}`}>
             <p className={`review ${review.review ? "review" : ""}`}>
               {review.review}. Review of {review.restaurant?.name}, {""}
               submitted by {review.user.name}
-              <button
-                onClick={() => {
-                  deleteReview(review.id);
-                }}
-              >
-                <FaTrashAlt />
-              </button>
-              <button
-                onClick={() => {
-                  history.push(`/reviews/edit/${review.id}`);
-                }}
-              >
-                <FaEdit />
-              </button>
+              {review.userId ===
+              parseInt(localStorage.getItem("vegan_user")) ? (
+                <button
+                  onClick={() => {
+                    deleteReview(review.id);
+                  }}
+                >
+                  <FaTrashAlt />
+                </button>
+              ) : null}
+              {review.userId ===
+              parseInt(localStorage.getItem("vegan_user")) ? (
+                <button
+                  onClick={() => {
+                    history.push(`/reviews/edit/${review.id}`);
+                  }}
+                >
+                  <FaEdit />
+                </button>
+              ) : null}
             </p>
           </div>
         );

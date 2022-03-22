@@ -16,7 +16,6 @@ export const RestaurantList = () => {
   const history = useHistory();
 
   useEffect(() => {
-    console.log("Initial useEffect");
     getAllRestaurants().then((restaurantArray) => {
       setRestaurants(restaurantArray);
     });
@@ -37,7 +36,7 @@ export const RestaurantList = () => {
   return (
     <>
       {isAdmin && (
-        <div div>
+        <div>
           <button onClick={() => history.push("/restaurants/create")}>
             <GiTacos />
             Add Restaurant
@@ -52,7 +51,10 @@ export const RestaurantList = () => {
               key={`restaurant--${restaurantObject.id}`}
             >
               <div className="restaurant_image">
-                <img src={Avocado} />
+                <img
+                  src={restaurantObject.image}
+                  className="displayRestaurantImage"
+                />
               </div>
               <Link to={`/restaurants/${restaurantObject.id}`}>
                 {restaurantObject.name}

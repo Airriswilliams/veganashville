@@ -22,21 +22,16 @@ export const Restaurant = () => {
   return (
     <>
       <section className="restaurant">
-        <h3 className="restaurant__name">{restaurant.name}</h3>
-        <div className="restaurant__address">
-          {restaurant.name} is located at {restaurant.address}
-        </div>
-
-        <div className="restaurant__menu">
+        <div className="restaurants">
+          <h3 className="restaurant__name">{restaurant.name}</h3>
+          {restaurant.name} is located at {restaurant.address}. {""}
           One of the best vegan spots in town for {restaurant.menu}
         </div>
-
-        <div className="restaurant__image">
-          <img src={restaurant.image}></img>
+        <div className="restaur-image">
+          <img src={restaurant.image} className="restaurantList__image"></img>
         </div>
-
-        <div className="restaurant__description">{restaurant.description}</div>
-        <div className="restaurant_category">
+        <div className="description">
+          {restaurant.description}
           Type of Cuisine: {""}
           {restaurant.category?.type}
         </div>

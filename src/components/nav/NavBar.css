@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: right;
+  padding-bottom: 0.8em;
 }
 
 .navbar__item {

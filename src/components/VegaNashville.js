@@ -19,7 +19,7 @@ export const VegaNashville = () => {
                     <h1 className="title">VegaNashville</h1>
                     {/* <img
                       className="header_photo"
-                      src="/images/dining.jpg"
+                      src="../images/dining.jpg"
                       alt="people dining outdoors"
                     /> */}
                     <h3 className="subtitle">

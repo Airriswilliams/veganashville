@@ -27,6 +27,7 @@ export const RestaurantEditForm = () => {
   const submitChange = (event) => {
     const editedRestaurant = {
       name: changedRestaurant.name,
+      image: changedRestaurant.image,
       address: changedRestaurant.address,
       menu: changedRestaurant.menu,
       description: changedRestaurant.description,
@@ -75,6 +76,25 @@ export const RestaurantEditForm = () => {
               onChange={(evt) => {
                 const copy = { ...changedRestaurant };
                 copy.name = evt.target.value;
+                updateChangedRestaurant(copy);
+              }}
+            />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="image">Image URL</label>
+            <input
+              required
+              autoFocus
+              id="image"
+              type="text"
+              className="form-control"
+              placeholder="Place Image URL Here"
+              onChange={(evt) => {
+                const copy = { ...changedRestaurant };
+                copy.image = evt.target.value;
                 updateChangedRestaurant(copy);
               }}
             />

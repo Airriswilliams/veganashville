@@ -13,14 +13,12 @@ export const FavoriteList = () => {
   const history = useHistory();
 
   useEffect(() => {
-    console.log("Initial useEffect");
     getAllRestaurants().then((restaurantArray) => {
       setAllRestaurants(restaurantArray);
     });
   }, []);
 
   useEffect(() => {
-    console.log("Initial useEffect");
     getAllFavorites().then((favoritesArray) => {
       setFavorites(favoritesArray);
     });
@@ -39,27 +37,35 @@ export const FavoriteList = () => {
       <h1>My Favorites</h1>
       <div className="favorite_list_section">
         {favorites.map((favoriteObject) => {
-          const foundRestaurant = restaurants.find(
-            (restaurant) => restaurant.id === favoriteObject.restaurantId
-          );
-          return (
-            <div key={`favorite--${favoriteObject.id}`}>
-              <div className="restaurant_image">
-                <img src={Salad} />
-              </div>
-              <Link to={`/restaurants/${foundRestaurant?.id}`}>
-                {favoriteObject.restaurant?.name}
-              </Link>
+          if (
+            favoriteObject.userId ===
+            parseInt(localStorage.getItem("vegan_user"))
+          ) {
+            const foundRestaurant = restaurants.find(
+              (restaurant) => restaurant.id === favoriteObject.restaurantId
+            );
+            return (
+              <div key={`favorite--${favoriteObject.id}`}>
+                <div className="favorite_image">
+                  <img
+                    src={favoriteObject.restaurant?.image}
+                    className="displayFavoriteImage"
+                  />
+                </div>
+                <Link to={`/restaurants/${foundRestaurant?.id}`}>
+                  {favoriteObject.restaurant?.name}
+                </Link>
 
-              <button
-                onClick={() => {
-                  deleteFavorite(favoriteObject.id);
-                }}
-              >
-                <FaTrashAlt />
-              </button>
-            </div>
-          );
+                <button
+                  onClick={() => {
+                    deleteFavorite(favoriteObject.id);
+                  }}
+                >
+                  <FaTrashAlt />
+                </button>
+              </div>
+            );
+          }
         })}
       </div>
     </>

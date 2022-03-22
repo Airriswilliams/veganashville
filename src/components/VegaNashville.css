@@ -21,10 +21,8 @@
 
 .topSection {
   background: url(/src/images/dining.jpg);
-  background-size: cover;
-  height: 25vh;
-  padding-top: 50vh;
-  padding-left: 5vw;
+  background-size: contain;
+  padding-top: 15vh;
 }
 
 .container {
@@ -39,13 +37,16 @@
 }
 
 .header_photo {
-  height: 600px;
+  height: 10rem;
   width: 100%;
+  z-index: 1;
 }
 
 .title {
   color: aqua;
+  padding-left: 10em;
 }
 .subtitle {
   color: rgb(255, 0, 0);
+  padding-left: 10em;
 }

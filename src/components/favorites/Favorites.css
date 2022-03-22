@@ -1,4 +1,13 @@
 /* .favorite_list_section {
-    display: flex;
-    flex-wrap: wrap;
+   justify-content: left;
+flex-direction: row;
+flex: 1 0 21%;
+margin-bottom: 11px;
+
 } */
+
+.displayFavoriteImage {
+width: 15em;
+height: 12em;
+border-radius: 1em;
+}

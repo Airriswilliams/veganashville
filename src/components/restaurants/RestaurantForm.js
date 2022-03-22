@@ -6,6 +6,7 @@ import { getAllCategories } from "../ApiManager";
 export const RestaurantForm = () => {
   const [restaurant, newRestaurant] = useState({
     name: "",
+    image: "",
     address: "",
     menu: "",
     description: "",
@@ -23,6 +24,7 @@ export const RestaurantForm = () => {
   const sendRestaurant = (event) => {
     const addedRestaurant = {
       name: restaurant.name,
+      image: restaurant.image,
       address: restaurant.address,
       menu: restaurant.menu,
       description: restaurant.description,
@@ -63,6 +65,25 @@ export const RestaurantForm = () => {
               onChange={(evt) => {
                 const copy = { ...restaurant };
                 copy.name = evt.target.value;
+                newRestaurant(copy);
+              }}
+            />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div className="form-group">
+            <label htmlFor="image">Image URL</label>
+            <input
+              required
+              autoFocus
+              id="image"
+              type="text"
+              className="form-control"
+              placeholder="Place Image URL Here"
+              onChange={(evt) => {
+                const copy = { ...restaurant };
+                copy.image = evt.target.value;
                 newRestaurant(copy);
               }}
             />
