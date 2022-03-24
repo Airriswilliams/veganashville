@@ -30,9 +30,7 @@
     grid-area: address;
 }
 
-.restaurant_menu {
-    grid-area: menu;
-} */
+
 
 .restaurant_description {
     grid-area: description;
@@ -105,3 +103,12 @@
     height: 12em;
     border-radius: 1em;
 }
+
+.restaurant-description {
+    margin-bottom: 11px;
+}
+
+.restaurant-menu {
+    margin-bottom: 25px;
+}
+

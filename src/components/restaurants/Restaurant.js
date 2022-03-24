@@ -24,17 +24,17 @@ export const Restaurant = () => {
       <section className="restaurant">
         <div className="restaurants">
           <h3 className="restaurant__name">{restaurant.name}</h3>
-          {restaurant.name} is located at {restaurant.address}. {""}
-          One of the best vegan spots in town for {restaurant.menu}
+          {restaurant.name} is located at {restaurant.address}
         </div>
-        <div className="restaur-image">
+        <div className="restaurant-menu">
+          One of the best vegan spots in town for {restaurant.menu}.
+        </div>
+        <div className="restaurant-image">
           <img src={restaurant.image} className="restaurantList__image"></img>
         </div>
-        <div className="description">
-          {restaurant.description}
-          Type of Cuisine: {""}
-          {restaurant.category?.type}
-        </div>
+        <div className="restaurant-description">{restaurant.description}.</div>
+        Type of Cuisine: {""}
+        {restaurant.category?.type}
       </section>
     </>
   );

@@ -29,40 +29,47 @@ export const Login = () => {
   };
 
   return (
-    <main className="container--login">
-      <dialog className="dialog dialog--auth" ref={existDialog}>
-        <div>User does not exist</div>
-        <button
-          className="button--close"
-          onClick={(e) => existDialog.current.close()}
-        >
-          Close
-        </button>
-      </dialog>
+    <div className="login-body">
+      <div className="container--login">
+        <dialog className="dialog dialog--auth" ref={existDialog}>
+          <div>User does not exist</div>
+          <button
+            className="button--close"
+            onClick={(e) => existDialog.current.close()}
+          >
+            Close
+          </button>
+        </dialog>
 
-      <section>
-        <form className="form--login" onSubmit={handleLogin}>
-          <h1>Music City's Vegan Guide</h1>
-          <h2>Please sign in</h2>
-          <fieldset>
-            <label htmlFor="inputEmail"> Email address </label>
-            <input
-              type="email"
-              onChange={(evt) => set(evt.target.value)}
-              className="form-control"
-              placeholder="Email address"
-              required
-              autoFocus
-            />
-          </fieldset>
-          <fieldset>
-            <button type="submit">Sign in</button>
-          </fieldset>
-        </form>
-      </section>
-      <section className="link--register">
-        <Link to="/register">Not a member yet?</Link>
-      </section>
-    </main>
+        <section>
+          <form className="form--login" onSubmit={handleLogin}>
+            <h1>Music City's Vegan Guide</h1>
+            <h2>Please sign in</h2>
+            <fieldset>
+              <label className="email" htmlFor="inputEmail">
+                {" "}
+                Email address{" "}
+              </label>
+              <input
+                type="email"
+                onChange={(evt) => set(evt.target.value)}
+                className="form-control"
+                placeholder="Email address"
+                required
+                autoFocus
+              />
+            </fieldset>
+            <fieldset>
+              <button type="submit">Sign in</button>
+            </fieldset>
+          </form>
+        </section>
+        <section className="link--register">
+          <Link className="signup" to="/register">
+            Not a member yet?
+          </Link>
+        </section>
+      </div>
+    </div>
   );
 };

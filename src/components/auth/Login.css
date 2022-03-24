@@ -1,7 +1,14 @@
 .h1,
-h1 {
+h1, h2 {
   font-size: 2.5rem;
+  color: rgb(102, 255, 0);
 }
+
+.email, .signup {
+  color: rgb(102, 255, 0);
+
+}
+
 
 fieldset {
   min-width: 0;
@@ -52,7 +59,7 @@ fieldset {
   z-index: 1;
   min-height: 25rem;
   min-width: 45rem;
-  background-color: hsla(0, 0%, 100%, 0.4);
+  /* background-color: hsla(0, 0%, 100%, 0.4); */
   background-blend-mode: overlay;
   background-repeat: no-repeat;
 }
@@ -66,3 +73,17 @@ fieldset {
   min-width: 15rem;
   min-height: 5rem;
 }
+
+.login-body {
+ /* display: flex;  */
+  width: 100%;
+  height: 100vh;
+background: url(/src/images/VegaNashvilleLogin.jpg) no-repeat center center fixed;
+background-size:cover;
+
+
+}
+
+
+
+

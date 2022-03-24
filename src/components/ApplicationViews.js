@@ -44,7 +44,7 @@ export const ApplicationViews = () => {
         <RestaurantEditForm />
       </Route>
 
-      <Route exact path="/reviews/edit/:reviewId(\d+)">
+      <Route exact path="/reviews/edit/:reviewObjectId(\d+)">
         <ReviewEditForm />
       </Route>
     </>

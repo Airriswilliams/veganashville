@@ -36,27 +36,29 @@ export const ReviewList = () => {
       </button>
       <h2>Leave a Review</h2>
       <img src={Chef} />
-      {reviews.map((review) => {
+      {reviews.map((reviewObject) => {
         return (
-          <div key={`review--${review.id}`}>
-            <p className={`review ${review.review ? "review" : ""}`}>
-              {review.review}. Review of {review.restaurant?.name}, {""}
-              submitted by {review.user.name}
-              {review.userId ===
+          <div key={`review--${reviewObject.id}`}>
+            <p className={`review ${reviewObject.review ? "review" : ""}`}>
+              {reviewObject.review}. Review of {reviewObject.restaurant?.name},{" "}
+              {""}
+              submitted by {reviewObject.user.name}
+              {reviewObject.userId ===
               parseInt(localStorage.getItem("vegan_user")) ? (
                 <button
                   onClick={() => {
-                    deleteReview(review.id);
+                    deleteReview(reviewObject.id);
                   }}
                 >
+                  Delete Review
                   <FaTrashAlt />
                 </button>
               ) : null}
-              {review.userId ===
+              {reviewObject.userId ===
               parseInt(localStorage.getItem("vegan_user")) ? (
                 <button
                   onClick={() => {
-                    history.push(`/reviews/edit/${review.id}`);
+                    history.push(`/reviews/edit/${reviewObject.id}`);
                   }}
                 >
                   <FaEdit />

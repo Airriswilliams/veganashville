@@ -9,7 +9,7 @@ import "./Reviews.css";
 
 export const ReviewEditForm = () => {
   const { reviewObjectId } = useParams(); // variable storing the route parameter
-  const [modifiedReview, updateReview] = useState({});
+  const [modifiedReview, updateModifiedReview] = useState({});
 
   const history = useHistory();
 
@@ -20,19 +20,19 @@ export const ReviewEditForm = () => {
   }, [reviewObjectId]);
 
   useEffect(() => {
-    getReviewbyId(reviewObjectId).then((data) => updateReview(data));
+    getReviewbyId(reviewObjectId).then((data) => updateModifiedReview(data));
   }, []);
 
   // once Submit Review button is clicked, we need a function to perform Post operation
   // function that uses state variable to create a new obj to post to API
-  const submitReview = (changeEvent) => {
+  const submitModifiedReview = (event) => {
     const editedReview = {
       restaurantId: parseInt(modifiedReview.restaurantId),
       review: modifiedReview.review,
       //pull FK of customerId from local storage and add it to the new obj to be submitted
       userId: parseInt(localStorage.getItem("vegan_user")),
     };
-    changeEvent.preventDefault();
+    event.preventDefault();
     // send newTicket obj to API
     const fetchOption = {
       method: "PUT",
@@ -50,7 +50,7 @@ export const ReviewEditForm = () => {
     )
       .then((res) => res.json())
       .then((editedReviewFromAPI) => {
-        updateReview(editedReviewFromAPI);
+        updateModifiedReview(editedReviewFromAPI);
       })
       .then(() => {
         history.push("/reviews");
@@ -66,12 +66,12 @@ export const ReviewEditForm = () => {
           <label htmlFor="restaurant">Restaurant</label>
           <select
             name="restaurant"
-            value={modifiedReview.restaurant}
+            value={modifiedReview.restaurantId}
             onChange={(evt) => {
               const copy = { ...modifiedReview };
-              copy.restaurant = evt.target.value;
+              copy.restaurantId = evt.target.value;
               //now that the copy is updated, the copy becomes the new state
-              updateReview(copy);
+              updateModifiedReview(copy);
             }}
           >
             <option value="0" disabled hidden>
@@ -81,7 +81,7 @@ export const ReviewEditForm = () => {
               return (
                 <option
                   key={`restaurant--${restaurant.id}`}
-                  value={restaurant.id}
+                  value={`${restaurant.id}`}
                 >
                   {`${restaurant.name}`}
                 </option>
@@ -98,7 +98,7 @@ export const ReviewEditForm = () => {
             onChange={(evt) => {
               const copy = { ...modifiedReview };
               copy.review = evt.target.value;
-              updateReview(copy);
+              updateModifiedReview(copy);
             }}
             required
             autoFocus
@@ -108,7 +108,7 @@ export const ReviewEditForm = () => {
           />
         </div>
       </fieldset>
-      <button onClick={submitReview} className="btn btn-primary">
+      <button onClick={submitModifiedReview} className="btn btn-primary">
         Submit Review
       </button>
     </form>
