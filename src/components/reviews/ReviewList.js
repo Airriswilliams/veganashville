@@ -54,7 +54,7 @@ export const ReviewList = () => {
                   <FaTrashAlt />
                 </button>
               ) : null}
-              {reviewObject.userId ===
+              {/* {reviewObject.userId ===
               parseInt(localStorage.getItem("vegan_user")) ? (
                 <button
                   onClick={() => {
@@ -63,7 +63,7 @@ export const ReviewList = () => {
                 >
                   <FaEdit />
                 </button>
-              ) : null}
+              ) : null} */}
             </p>
           </div>
         );
