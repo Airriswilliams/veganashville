@@ -15,6 +15,8 @@ Features include:
 ## Setup
 
 1. First, you will need to clone the project to your terminal:
+
+
 $ git clone git@github.com:airriswilliams/veganashville.git
 
 The page will reload when you make changes.\
