@@ -12,7 +12,7 @@ Features include:
 - Administrative users can add, delete and edit restaurants listed within the application
 - The app has a restaurants page, a personal favorites page and a restaurant reviews page
 
-### Setup
+## Setup
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
