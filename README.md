@@ -1,6 +1,6 @@
 # Front End Capstone: VegaNashville
 
-Web application built in ReactJS used to allow users to view and favorite Vegan restaurants located in Nashville. The application has two separate logins for administrative and non administrative users. Administrative users can add, delete and edit restaurants listed on the application. Non administrative users can view, review and add restaurants to their personal favorites list. Front-End Capstone project built using React with JSON server for data storage.
+This is my front-end capstone project for Nashville Software School. This web application built in ReactJS can be used to allow users to view and favorite Vegan restaurants located in Nashville. The application has two separate logins for administrative and non administrative users. Administrative users can add, delete and edit restaurants listed on the application. Non administrative users can view, leave a review and add restaurants to their personal favorites list. 
 TECH USED: JavaScript, React, HTML, CSS
 
 ## Available Scripts
