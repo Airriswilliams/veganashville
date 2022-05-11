@@ -31,8 +31,12 @@ npm start
 4. In order for the application to run as it's intended, you will need to open up a new tab in your terminal and run the following command:
 
 cd
+
 cd workspace
+
 cd veganashville
+
 cd api
+
 json-server -p 8088 database.json
 
